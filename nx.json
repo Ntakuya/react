@@ -1,0 +1,43 @@
+{
+  "npmScope": "react",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "accessToken": "NDQ2N2RhMTUtN2I3OC00YWM5LWFlNGQtMWRhODExMDVkZDczfHJlYWQtd3JpdGU=",
+        "cacheableOperations": [
+          "build",
+          "test",
+          "lint",
+          "e2e"
+        ],
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
+    }
+  },
+  "projects": {
+    "react-sample": {
+      "tags": []
+    },
+    "react-sample-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "react-sample"
+      ]
+    }
+  }
+}
