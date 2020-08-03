@@ -11,10 +11,17 @@ const StyledRenderingElements = styled.div`
 
 export const RenderingElements = (props: RenderingElementsProps) => {
   const [state, updateState] = React.useState(new Date());
-  const timer = setInterval(() => {
-    const date = new Date();
-    updateState(date);
-  }, 1000);
+  const [loaded, updateLoaded] = React.useState(false);
+
+  if (!loaded) {
+    const timer = setInterval(() => {
+      const date = new Date();
+      updateState(date);
+    }, 1000);
+  } else {
+    updateLoaded(true);
+  }
+
   return (
     <StyledRenderingElements>
       <div>
