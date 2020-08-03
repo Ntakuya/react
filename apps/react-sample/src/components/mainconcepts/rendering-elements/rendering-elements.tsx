@@ -21,6 +21,7 @@ export const RenderingElements = (props: RenderingElementsProps) => {
   } else {
     updateLoaded(true);
   }
+  clerInterval(timer);
 
   return (
     <StyledRenderingElements>
