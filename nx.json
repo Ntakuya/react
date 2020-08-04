@@ -18,12 +18,7 @@
       "runner": "@nrwl/nx-cloud",
       "options": {
         "accessToken": "NDQ2N2RhMTUtN2I3OC00YWM5LWFlNGQtMWRhODExMDVkZDczfHJlYWQtd3JpdGU=",
-        "cacheableOperations": [
-          "build",
-          "test",
-          "lint",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
         "canTrackAnalytics": false,
         "showUsageWarnings": true
       }
@@ -35,9 +30,21 @@
     },
     "react-sample-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "react-sample"
-      ]
+      "implicitDependencies": ["react-sample"]
+    },
+    "react-redux": {
+      "tags": []
+    },
+    "react-redux-e2e": {
+      "tags": [],
+      "implicitDependencies": ["react-redux"]
+    },
+    "react-redux-thunk": {
+      "tags": []
+    },
+    "react-redux-thunk-e2e": {
+      "tags": [],
+      "implicitDependencies": ["react-redux-thunk"]
     }
   }
 }
