@@ -6,6 +6,7 @@ import ComponentsAndProps from './components-and-props/components-and-props';
 import StateAndLifecycle from './state-and-lifecycle/state-and-lifecycle';
 import HandlingEvents from './handling-events/handling-events';
 import ConditionalRendering from './conditional-rendering/conditional-rendering';
+import ListsAndKeys from './lists-and-keys/lists-and-keys';
 
 const MainConcepts = () => {
   return (
@@ -19,6 +20,7 @@ const MainConcepts = () => {
       <StateAndLifecycle />
       <HandlingEvents />
       <ConditionalRendering />
+      <ListsAndKeys />
     </>
   );
 };

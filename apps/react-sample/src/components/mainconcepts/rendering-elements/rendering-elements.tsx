@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import styled from 'styled-components';
 
@@ -9,19 +9,26 @@ const StyledRenderingElements = styled.div`
   color: pink;
 `;
 
+// https://stackoverflow.com/questions/53464595/how-to-use-componentwillmount-in-react-hooks
 export const RenderingElements = (props: RenderingElementsProps) => {
   const [state, updateState] = React.useState(new Date());
   const [loaded, updateLoaded] = React.useState(false);
+  let timer: any;
 
-  if (!loaded) {
-    const timer = setInterval(() => {
+  if (loaded) {
+    updateLoaded(true);
+  }
+
+  useEffect(() => {
+    timer = setInterval(() => {
       const date = new Date();
       updateState(date);
     }, 1000);
-  } else {
-    updateLoaded(true);
-  }
-  clerInterval(timer);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
 
   return (
     <StyledRenderingElements>
