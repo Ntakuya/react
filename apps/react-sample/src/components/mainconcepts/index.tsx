@@ -8,6 +8,7 @@ import HandlingEvents from './handling-events/handling-events';
 import ConditionalRendering from './conditional-rendering/conditional-rendering';
 import ListsAndKeys from './lists-and-keys/lists-and-keys';
 import Forms from './forms/forms';
+import LiftingStateUp from './lifting-state-up/lifting-state-up';
 
 const MainConcepts = () => {
   return (
@@ -23,6 +24,7 @@ const MainConcepts = () => {
       <ConditionalRendering />
       <ListsAndKeys />
       <Forms />
+      <LiftingStateUp />
     </>
   );
 };
