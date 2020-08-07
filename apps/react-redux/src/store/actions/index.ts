@@ -1,24 +1,33 @@
+import TodoActionTypes from '../action-types/todo';
+import VisibilityFilter from '../action-types/visibility-fiter';
+
 let nextTodoId = 0;
 
-/**
- * @todo create action types
- */
-
 export const addTodo = (text) => ({
-  type: 'ADD_TODO',
-  id: nextTodoId++,
-  text,
+  type: TodoActionTypes.add,
+  payload: {
+    id: nextTodoId++,
+    text,
+  },
 });
 
-export const setVisibilityFilter = (filter) => ({
-  type: 'SET_VISIBILITY_FILTER',
-  filter,
-});
+export const setVisibilityFilter = (filter) => {
+  return {
+    type: VisibilityFilter.setFilter,
+    payload: {
+      filter,
+    },
+  };
+};
 
-export const toggleTodo = (id) => ({
-  type: 'TOGGLE_TODO',
-  id,
-});
+export const toggleTodo = (id) => {
+  return {
+    type: TodoActionTypes.toggle,
+    payload: {
+      id,
+    },
+  };
+};
 
 export const VisilibilityFilters = {
   SHOW_ALL: 'SHOW_ALL',

@@ -1,22 +1,50 @@
-/**
- * @todo use action types
- */
+import TodoActionTypes from '../action-types/todo';
+import { Todo } from '../../interfacees/Todo';
 
-const todos = (state = [], action: any) => {
-  switch (action.type) {
-    case 'ADD_TODO':
-      return [
+interface TodoState {
+  list: Todo[];
+  selectedId: null;
+  loading: boolean;
+  loaded: boolean;
+}
+
+const initaliState: TodoState = {
+  loading: false,
+  loaded: false,
+  list: [],
+  selectedId: null,
+};
+
+const todos = (
+  state = initaliState,
+  action: {
+    type: TodoActionTypes;
+    payload?: Partial<Todo>;
+  }
+) => {
+  const { payload, type } = action;
+  switch (type) {
+    case TodoActionTypes.add:
+      return {
         ...state,
-        {
-          id: action.id,
-          text: action.text,
-          completed: false,
-        },
-      ];
-    case 'TOGGLE_TODO':
-      return state.map((todo) =>
-        todo.id === action.id ? { ...todo, completed: !todo.completd } : todo
-      );
+        list: [
+          ...state.list,
+          {
+            id: payload.id,
+            completed: false,
+            text: payload.text,
+          },
+        ],
+      };
+    case TodoActionTypes.toggle:
+      return {
+        ...state,
+        list: state.list.map((todo) =>
+          todo.id === payload.id
+            ? { ...todo, completed: !todo.completed }
+            : todo
+        ),
+      };
     default:
       return state;
   }

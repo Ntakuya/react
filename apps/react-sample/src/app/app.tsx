@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import Games from '../components/tutorials';
 import MainConcepts from '../components/mainconcepts';
+import AdvancedGuide from '../components/advanced-guide/advanced-guide';
 
 const StyledApp = styled.div`
   font-family: sans-serif;
@@ -151,11 +152,15 @@ export const App = () => {
             <li>
               <Link to="/main-concepts">Main Concepts</Link>
             </li>
+            <li>
+              <Link to="/advanced-guide">Advanced Guide</Link>
+            </li>
           </ul>
         </nav>
         <div className="app-content">
           <Route path="/" exact component={Games} />
           <Route path="/main-concepts" exact component={MainConcepts} />
+          <Route path="/advanced-guide" exact component={AdvancedGuide} />
         </div>
       </StyledApp>
     </BrowserRouter>
