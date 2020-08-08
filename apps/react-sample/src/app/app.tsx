@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import styled from 'styled-components';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
-import Games from '../components/tutorials';
-import MainConcepts from '../components/mainconcepts';
-import AdvancedGuide from '../components/advanced-guide/advanced-guide';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+const Games = React.lazy(() => import('../components/tutorials'));
+const MainConcepts = React.lazy(() => import('../components/mainconcepts'));
+const AdvancedGuide = React.lazy(() =>
+  import('../components/advanced-guide/advanced-guide')
+);
 
 import reduxRoutes from './router/redux';
 
@@ -158,19 +160,23 @@ export const App = () => {
           </ul>
         </nav>
         <div className="app-content">
-          <Route path="/" exact component={Games} />
-          <Route path="/main-concepts" exact component={MainConcepts} />
-          <Route path="/advanced-guide" exact component={AdvancedGuide} />
-          <Route path="/redux" exact>
-            {reduxRoutes.map((route) => (
-              <Route
-                key={route.path}
-                path={route.path}
-                exact
-                component={route.component}
-              />
-            ))}
-          </Route>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Switch>
+              <Route path="/" exact component={Games} />
+              <Route path="/main-concepts" exact component={MainConcepts} />
+              <Route path="/advanced-guide" exact component={AdvancedGuide} />
+              <Route path="/redux">
+                {reduxRoutes.map((route) => (
+                  <Route
+                    key={route.path}
+                    path={route.path}
+                    exact
+                    component={route.component}
+                  />
+                ))}
+              </Route>
+            </Switch>
+          </Suspense>
         </div>
       </StyledApp>
     </BrowserRouter>
