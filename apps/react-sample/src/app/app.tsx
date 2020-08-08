@@ -7,6 +7,7 @@ const MainConcepts = React.lazy(() => import('../components/mainconcepts'));
 const AdvancedGuide = React.lazy(() =>
   import('../components/advanced-guide/advanced-guide')
 );
+const LaterAdvancedGuide = React.lazy(() => import('./router/adavnced-guide'));
 
 import reduxRoutes from './router/redux';
 
@@ -152,7 +153,8 @@ export const App = () => {
               <Link to="/main-concepts">Main Concepts</Link>
             </li>
             <li>
-              <Link to="/advanced-guide">Advanced Guide</Link>
+              <Link to="/advanced-guide">Advanced Guide</Link>/
+              <Link to="/advanced-guide/context">Context Advanced Guide</Link>
             </li>
             <li>
               <Link to="/redux">Redux</Link>
@@ -175,6 +177,7 @@ export const App = () => {
                   />
                 ))}
               </Route>
+              <LaterAdvancedGuide />
             </Switch>
           </Suspense>
         </div>

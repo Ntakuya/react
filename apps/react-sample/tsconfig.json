@@ -6,7 +6,8 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "@containers/*": ["apps/react-sample/src/containers/*"]
+      "@containers/*": ["apps/react-sample/src/containers/*"],
+      "@react/ui": ["libs/ui/src/index.ts"]
     }
   },
   "files": [],
