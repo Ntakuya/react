@@ -6,6 +6,8 @@ import Games from '../components/tutorials';
 import MainConcepts from '../components/mainconcepts';
 import AdvancedGuide from '../components/advanced-guide/advanced-guide';
 
+import reduxRoutes from './router/redux';
+
 const StyledApp = styled.div`
   font-family: sans-serif;
   min-width: 300px;
@@ -136,11 +138,6 @@ const StyledApp = styled.div`
 `;
 
 export const App = () => {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./app.styled-components file.
-   */
   return (
     <BrowserRouter>
       <StyledApp>
@@ -155,12 +152,25 @@ export const App = () => {
             <li>
               <Link to="/advanced-guide">Advanced Guide</Link>
             </li>
+            <li>
+              <Link to="/redux">Redux</Link>
+            </li>
           </ul>
         </nav>
         <div className="app-content">
           <Route path="/" exact component={Games} />
           <Route path="/main-concepts" exact component={MainConcepts} />
           <Route path="/advanced-guide" exact component={AdvancedGuide} />
+          <Route path="/redux" exact>
+            {reduxRoutes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                exact
+                component={route.component}
+              />
+            ))}
+          </Route>
         </div>
       </StyledApp>
     </BrowserRouter>

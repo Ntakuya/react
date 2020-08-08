@@ -45,6 +45,9 @@
     "react-redux-thunk-e2e": {
       "tags": [],
       "implicitDependencies": ["react-redux-thunk"]
+    },
+    "ui": {
+      "tags": []
     }
   }
 }
