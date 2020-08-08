@@ -3,6 +3,7 @@ import { toggleTodo } from '../../store/actions';
 import TodoList from '../components/todo-list/todo-list';
 import { VisilibilityFilters } from '../../store/actions';
 import { Todo } from 'apps/react-redux/src/interfacees/Todo';
+import { RootState } from '../../store';
 
 const getVisibleTodos = (todos: Todo[], filter) => {
   switch (filter) {
@@ -17,7 +18,7 @@ const getVisibleTodos = (todos: Todo[], filter) => {
   }
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: RootState) => ({
   todos: getVisibleTodos(state.todos.list, state.visibilityFilter),
 });
 
