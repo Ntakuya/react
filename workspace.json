@@ -74,7 +74,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/react-sample/jest.config.js",
-            "tsConfig": "apps/react-sample/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
@@ -181,7 +180,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/react-redux/jest.config.js",
-            "tsConfig": "apps/react-redux/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
@@ -288,7 +286,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/react-redux-thunk/jest.config.js",
-            "tsConfig": "apps/react-redux-thunk/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
@@ -346,7 +343,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
-            "tsConfig": "libs/ui/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
